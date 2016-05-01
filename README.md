@@ -1,8 +1,10 @@
-# Sonic Lost World Mod Loader
-A Mod Loader for Sonic Lost World on the PC! :D Currently a WIP.
+# Sonic Generations Mod Loader
+A mod loader for Sonic Generations on the PC! This is a modification of [SLW Mod Loader](https://github.com/Radfordhound/SLW-Mod-Loader).
+
+Please note that once SLW Mod Loader has functionality for Sonic Generations, this repo will disappear forever!
 
 ##How do I use this?
-After [downloading the latest binary](https://github.com/Radfordhound/SLW-Mod-Loader/releases/latest), simply make a "mods" folder within your Sonic Lost World installation directory, then place a bunch of folders inside said mods directory (one for each mod) each containing all the modified files you'd like the game to load. Then, just fire up the mod loader (SLWModLoader.exe), check the checkbox(es) next to the mods you'd like to use in-game, and click "Play!"
+After [downloading the latest binary](https://github.com/GoldtexTwitch/Sonic-Generations-Mod-Loader/releases/latest), simply make a "mods" folder within your Sonic Generations installation directory, then place a bunch of folders inside said mods directory (one for each mod) each containing all the modified files you'd like the game to load. Then, just fire up the mod loader (SLWModLoader.exe), check the checkbox(es) next to the mods you'd like to use in-game, and click "Play!"
 
 ###Mod installation tutorial by "Mac" (made for 1.4 but still applies to later revisions):
 
@@ -15,8 +17,8 @@ Mods designed for the mod loader come in the form of folders that contain the fo
 
 - A "mod.ini" file (a file which describes your mod, as well as all it's various details).
 - A "disk" folder
-  - A "sonic2013_patch_0" folder
-    - All your modified files/folders from the root of Sonic Lost World's .cpk files on in their raw form (typically .pac files).
+  - A "bb/bb2/bb3" folder
+    - All your modified files/folders from the root of Sonic Lost World's .cpk files on in their raw form (typically .ar.00 files).
 
 So long as the structure of your mod remains in this way, virtually any file in the game can be modified and released as part of your mod.
 
@@ -24,9 +26,9 @@ As an example, the extremely basic "Tanic the Hedgehog" recolor mod has a file/f
 
 - A "mod.ini" file
 - A "disk" folder
-  - A "sonic2013_patch_0" folder
-    - Sonic.pac
-    - Sonic.pac.00
+  - A "bb/bb2/bb3" folder
+    - Sonic.ar.00
+    - Sonic.ar.01
 
 Wereas the "MLG Speedrun Zone 1" mod (which modifies certain files not on the root of the .cpk) has a file/folder structure that goes like so:
 
