@@ -143,7 +143,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(540, 418);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Mods";
+            this.tabPage1.Text = "Mod List";
             // 
             // splitContainer
             // 
@@ -192,7 +192,7 @@
             this.nomodsfound.Name = "nomodsfound";
             this.nomodsfound.Size = new System.Drawing.Size(501, 412);
             this.nomodsfound.TabIndex = 4;
-            this.nomodsfound.Text = "No mods found!\r\nPlease check your mod folder.";
+            this.nomodsfound.Text = "No mods have been found!\r\nAre there mods in your mods folder?";
             this.nomodsfound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.nomodsfound.Visible = false;
             // 
@@ -250,7 +250,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(540, 418);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Options";
+            this.tabPage2.Text = "Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -297,9 +297,9 @@
             this.makelogfile.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.makelogfile.Location = new System.Drawing.Point(15, 15);
             this.makelogfile.Name = "makelogfile";
-            this.makelogfile.Size = new System.Drawing.Size(166, 18);
+            this.makelogfile.Size = new System.Drawing.Size(170, 18);
             this.makelogfile.TabIndex = 10;
-            this.makelogfile.Text = "Make a log file when closing";
+            this.makelogfile.Text = "Create a log file when closing";
             this.makelogfile.UseVisualStyleBackColor = true;
             this.makelogfile.CheckedChanged += new System.EventHandler(this.makelogfile_CheckedChanged);
             // 
@@ -311,7 +311,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(534, 412);
             this.label1.TabIndex = 9;
-            this.label1.Text = "More options coming soon! :)";
+            this.label1.Text = "More options are coming soon!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
             // 
@@ -369,7 +369,7 @@
             this.descriptionlbl.Size = new System.Drawing.Size(548, 587);
             this.descriptionlbl.TabIndex = 7;
             this.descriptionlbl.TabStop = true;
-            this.descriptionlbl.Text = "Click on a mod to see it\'s description. Then try clicking on me! :)";
+            this.descriptionlbl.Text = "Click on a mod to see it\'s description. Then click on me to see more!";
             this.descriptionlbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.descriptionlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.descriptionlbl_LinkClicked);
             // 
