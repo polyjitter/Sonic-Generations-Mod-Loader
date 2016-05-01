@@ -61,7 +61,7 @@ namespace SLWModLoader
                 }
                 else if (radioButton2.Checked)
                 {
-                    FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "The folder which contains the mod-related files you'd like to load in-game, typically extracted from a .zip/.7z/.rar archive." };
+                    FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "The folder which contains the files for the mod that you would like to load in-game, these are typically extracted from a .zip/.7z/.rar archive." };
                     if (fbd.ShowDialog() == DialogResult.OK)
                     {
                         if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
@@ -103,7 +103,7 @@ namespace SLWModLoader
                             }
                         }
 
-                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a load-able mod! Would you like to try and install it anyway?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a loadable mod! Would you like to try and install it anyway?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                         {
                             if (Directory.GetDirectories(Application.StartupPath + "\\temp_install").Length > 0)
                             {
@@ -122,6 +122,11 @@ namespace SLWModLoader
             }
 
             Close();
+        }
+
+        private void NewModFrm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -27,5 +27,15 @@ namespace SLWModLoader
             Close();
             new DevNewModFrm(textBox1.Text).ShowDialog();
         }
+
+        private void label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DevNewModFrmTxt_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

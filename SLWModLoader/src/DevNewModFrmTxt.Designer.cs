@@ -44,13 +44,14 @@
             this.label.Size = new System.Drawing.Size(318, 31);
             this.label.TabIndex = 3;
             this.label.Text = "Please give your mod a name.";
+            this.label.Click += new System.EventHandler(this.label_Click);
             // 
             // okBtn
             // 
             this.okBtn.Enabled = false;
             this.okBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.okBtn.Location = new System.Drawing.Point(34, 65);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(2);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(274, 23);
             this.okBtn.TabIndex = 5;
@@ -61,7 +62,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(21, 44);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(301, 20);
             this.textBox1.TabIndex = 6;
@@ -78,7 +79,7 @@
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DevNewModFrmTxt";
@@ -86,6 +87,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sonic Generations Mod Loader";
+            this.Load += new System.EventHandler(this.DevNewModFrmTxt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

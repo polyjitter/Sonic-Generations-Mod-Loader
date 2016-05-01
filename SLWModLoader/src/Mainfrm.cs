@@ -230,7 +230,7 @@ namespace SLWModLoader
             {
                 client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
 
-                Updatefrm.latest = new StreamReader(client.OpenRead("https://api.github.com/repos/GoldtexTwitch/SLW-Mod-Loader-Gens/releases/latest")).ReadToEnd();
+                Updatefrm.latest = new StreamReader(client.OpenRead("https://api.github.com/repos/GoldtexTwitch/Sonic-Generations-Mod-Loader/releases/latest")).ReadToEnd();
                 Updatefrm.latestversion = Updatefrm.latest.Substring(Updatefrm.latest.IndexOf("tag_name") + 11, 3);
                 logfile.Add("Got latest release information from GitHub.");
 
@@ -312,7 +312,7 @@ namespace SLWModLoader
         private void StartLostWorld(bool closing)
         {
             logfile.Add((closing)?"Closing mod loader and starting Sonic Generations...":"Starting Sonic Generations...");
-            Invoke(new Action(() => { statuslbl.Text = "Starting SG..."; }));
+            Invoke(new Action(() => { statuslbl.Text = "Starting Sonic Generations..."; }));
             Process.Start("steam://rungameid/71340");
 
             Invoke((closing)?new Action(() => { Close(); }):new Action(() => { statuslbl.Text = ""; }));
