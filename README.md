@@ -18,29 +18,29 @@ Mods designed for the mod loader come in the form of folders that contain the fo
 - A "mod.ini" file (a file which describes your mod, as well as all it's various details).
 - A "disk" folder
   - A "bb/bb2/bb3" folder
-    - All your modified files/folders from the root of Sonic Lost World's .cpk files on in their raw form (typically .ar.00 files).
+    - All your modified files/folders from the root of Sonic Generations's .cpk files on in their raw form (typically .ar.00 files).
 
 So long as the structure of your mod remains in this way, virtually any file in the game can be modified and released as part of your mod.
 
-As an example, the extremely basic "Tanic the Hedgehog" recolor mod has a file/folder structure that goes like so:
+As an example, the totally not original character "Marie Themed Sonic" mod has a file/folder structure that goes like so:
 
 - A "mod.ini" file
 - A "disk" folder
-  - A "bb/bb2/bb3" folder
+  - A "bb3" folder
     - Sonic.ar.00
     - Sonic.ar.01
+    - Sonic.arl
 
 Wereas the "MLG Speedrun Zone 1" mod (which modifies certain files not on the root of the .cpk) has a file/folder structure that goes like so:
 
 - A "mod.ini" file
 - A "disk" folder
-  - A "sonic2013_patch_0" folder
-    - A "set" folder
+  - A "bb" folder
+    - A "Packed" folder
       - w1a01_obj_00.orc
       - w1a01_obj_01.orc
       - w1a01_obj_02.orc
       - w1a01_obj_03.orc
-    - actstgmission.lua
 
 
 ###The mod.ini file
@@ -89,6 +89,8 @@ Typing a "\n" in this value will indicate a new line within the mod loader, **wh
 **AuthorURL** The URL(s) to the author(s) of the mod. (Such as websites, YouTube channels, and social media accounts.) **You can include multiple authors in this value!** Simply seperate the authors' URLs via a space, followed by an ampersand, and another space. (Like this: "https://www.youtube.com/user/Radfordhound & https://www.youtube.com/channel/UCZfOGBkXRKICFozWU5bE0Xg") They will be loaded as seperate URLs within the mod loader and automatically linked with the data contained in the "Author" value, allowing you to link to them seperately.
 
 **URL** The URL of the mod (aka mod homepages/threads/release videos).
+
+**BackgroundImage** The image in the background of the mod when you click for more information. (verry buggy at the moment!).
 
 
 There are many other values that can be used in a mod.ini file, many of which are already being used in several mods. So keep an eye out for em' in other released mods! :)
