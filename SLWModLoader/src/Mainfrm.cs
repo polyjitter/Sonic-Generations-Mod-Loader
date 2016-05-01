@@ -13,7 +13,7 @@ namespace SLWModLoader
 {
     public partial class Mainfrm : Form
     {
-        public static string versionstring = "1.0-rc", gensdirectory = Application.StartupPath;
+        public static string versionstring = "1.0", gensdirectory = Application.StartupPath;
         public static bool debugmode = false;
         public static Thread generatemodsdbthread, loadmodthread, updatethread, patchthread;
         public static WebClient client = new WebClient();
