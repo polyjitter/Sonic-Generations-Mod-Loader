@@ -397,7 +397,7 @@ namespace SLWModLoader
         //comic sans? looks like somebody's gonna have a bad time.
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            label1.Text = "Stop finding secrets. \nOne of these days \nyou're gonna have a bad time.";
+            label1.Text = "Stop finding secrets. \nOne of these days... \n...you're gonna be in His World™. \n(HIS WOOORLLLLLLLLLLLLLLLLLLLLLLLL—)";
             Text += " - Professional Edition™";
 
             foreach (Control control in Controls)
@@ -483,7 +483,7 @@ namespace SLWModLoader
 
         private void reportlbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new Process() { StartInfo = new ProcessStartInfo("https://github.com/Radfordhound/SLW-Mod-Loader/issues/new") }.Start();
+            new Process() { StartInfo = new ProcessStartInfo("https://github.com/GoldtexTwitch/Sonic-Generations-Mod-Loader/issues/new") }.Start();
         }
 
         private void rmmodbtn_Click(object sender, EventArgs e)
