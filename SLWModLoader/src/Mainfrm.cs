@@ -13,7 +13,7 @@ namespace SLWModLoader
 {
     public partial class Mainfrm : Form
     {
-        public static string versionstring = "1.0", gensdirectory = Application.StartupPath;
+        public static string versionstring = "1.0-dev", gensdirectory = Application.StartupPath;
         public static bool debugmode = false;
         public static Thread generatemodsdbthread, loadmodthread, updatethread, patchthread;
         public static WebClient client = new WebClient();
@@ -23,7 +23,7 @@ namespace SLWModLoader
         {
             #if DEBUG
                 debugmode = true;
-                gensdirectory = @"C:\Program Files (x86)\Steam\SteamApps\common\Sonic Generations"; //Comment-out this line if debugging on a PC where SLW is installed somewhere else!
+                gensdirectory = @"C:\Program Files (x86)\Steam\SteamApps\common\Sonic Generations"; //Comment-out this line if debugging on a PC where Sonic Generations is installed somewhere else!
             #endif
 
             logfile.Add("Initializing main form...");
@@ -167,7 +167,7 @@ namespace SLWModLoader
 
         public static void RefreshModList()
         {
-            Program.mainfrm.descriptionlbl.Text = "Click on a mod to see it's description. Then try clicking on me! :)";
+            Program.mainfrm.descriptionlbl.Text = "Click on a mod to see it's description. Then click on me to see more!";
             Program.mainfrm.descriptionlbl.LinkBehavior = LinkBehavior.NeverUnderline;
 
             loadmodthread = new Thread(new ThreadStart(Program.mainfrm.LoadMods));
