@@ -18,7 +18,7 @@ Mods designed for the mod loader come in the form of folders that contain the fo
 - A "mod.ini" file (a file which describes your mod, as well as all it's various details).
 - A "disk" folder
   - A "bb/bb2/bb3" folder
-    - All your modified files/folders from the root of Sonic Generations's .cpk files on in their raw form (typically .ar.00 files).
+    - All your modified files/folders from the root of Sonic Generations' .cpk files on in their raw form (typically .ar.00 files).
 
 So long as the structure of your mod remains in this way, virtually any file in the game can be modified and released as part of your mod.
 
