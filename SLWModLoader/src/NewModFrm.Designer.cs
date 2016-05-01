@@ -41,12 +41,12 @@
             this.radioButton1.Checked = true;
             this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButton1.Location = new System.Drawing.Point(15, 55);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(128, 18);
+            this.radioButton1.Size = new System.Drawing.Size(141, 18);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "&Installing it from a file";
+            this.radioButton1.Text = "&Installing one from a file";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -67,11 +67,11 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButton2.Location = new System.Drawing.Point(15, 75);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(141, 18);
+            this.radioButton2.Size = new System.Drawing.Size(154, 18);
             this.radioButton2.TabIndex = 2;
-            this.radioButton2.Text = "Installing it from a &folder";
+            this.radioButton2.Text = "Installing one from a &folder";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -80,11 +80,11 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButton3.Location = new System.Drawing.Point(15, 94);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(150, 18);
+            this.radioButton3.Size = new System.Drawing.Size(91, 18);
             this.radioButton3.TabIndex = 3;
-            this.radioButton3.Text = "&Making it (for developers)";
+            this.radioButton3.Text = "&Creating one";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
@@ -92,7 +92,7 @@
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.okBtn.Location = new System.Drawing.Point(295, 106);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(2);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(64, 22);
             this.okBtn.TabIndex = 4;
@@ -113,7 +113,7 @@
             this.Controls.Add(this.label);
             this.Controls.Add(this.radioButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewModFrm";

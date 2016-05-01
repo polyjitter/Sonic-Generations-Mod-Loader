@@ -67,7 +67,7 @@ namespace SLWModLoader
             catch (Exception ex)
             {
                 Mainfrm.logfile.Add("ERROR: An error has occured and the application could not be updated. Please try again." + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Environment.NewLine + "ADVANCED INFO (FOR DEBUGGING): " + Environment.NewLine + Environment.NewLine + ex.ToString());
-                Invoke(new Action(() => { MessageBox.Show("An error has occured and the application could not be updated. Please try again.","SLW Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); }));
+                Invoke(new Action(() => { MessageBox.Show("An error has occured and the application could not be updated. Please try again.","Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); }));
             }
 
             Application.Exit();

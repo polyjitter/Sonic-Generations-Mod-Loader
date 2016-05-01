@@ -29,7 +29,7 @@ namespace SLWModLoader
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR: "+ex.Message+Environment.NewLine + Environment.NewLine + Environment.NewLine+"ADVANCED INFO (FOR DEBUGGING): "+Environment.NewLine + Environment.NewLine + ex.ToString(),"SLW Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("ERROR: "+ex.Message+Environment.NewLine + Environment.NewLine + Environment.NewLine+"ADVANCED INFO (FOR DEBUGGING): "+Environment.NewLine + Environment.NewLine + ex.ToString(),"Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Mainfrm.logfile.Add("ERROR: " + ex.Message + Environment.NewLine + Environment.NewLine + Environment.NewLine + "ADVANCED INFO (FOR DEBUGGING): " + Environment.NewLine + Environment.NewLine + ex.ToString());
             }
 

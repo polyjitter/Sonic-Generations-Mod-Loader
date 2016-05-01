@@ -17,7 +17,7 @@ namespace SLWModLoader
             InitializeComponent();
 
             Text = $"v{Mainfrm.versionstring} Changelog";
-            label1.Text = $"SLW Mod Loader v{Mainfrm.versionstring}";
+            label1.Text = $"Sonic Generations Mod Loader v{Mainfrm.versionstring}";
 
             string updatechangelog = Updatefrm.latest.Substring(Updatefrm.latest.IndexOf("body") + 7, Updatefrm.latest.IndexOf("\"}", Updatefrm.latest.IndexOf("body") + 7) - (Updatefrm.latest.IndexOf("body") + 7));
             updatechangelog = updatechangelog.Replace("\\\"","\"").Replace("*", "").Replace("\\r\\n",Environment.NewLine);

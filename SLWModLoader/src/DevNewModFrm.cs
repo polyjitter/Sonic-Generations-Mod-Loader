@@ -100,7 +100,7 @@ namespace SLWModLoader
                     {
                         if (dr == DialogResult.None)
                         {
-                            dr = MessageBox.Show("One or more of the given properties seem to be empty/invalid! Would you like to keep them anyway?", "SLW Mod Loader", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
+                            dr = MessageBox.Show("One or more of the given properties seem to be empty/invalid! Would you like to keep them anyway?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
                             doclose = (dr != DialogResult.Cancel);
                             if (!doclose) { return; }
                         }
@@ -128,7 +128,7 @@ namespace SLWModLoader
                 }
                 dirname = Mainfrm.gensdirectory + "\\mods\\" + dirname;
 
-                if (Directory.Exists(dirname) && MessageBox.Show($"A mod already exists in the \"{name}\" folder. Would you like to delete it and replace it with this one?","SLW Mod Loader",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (Directory.Exists(dirname) && MessageBox.Show($"A mod already exists in the \"{name}\" folder. Would you like to delete it and replace it with this one?","Sonic Generations Mod Loader",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     Directory.Delete(dirname,true);
                 }
@@ -136,9 +136,12 @@ namespace SLWModLoader
                 Directory.CreateDirectory(dirname);
                 File.WriteAllLines(dirname+"\\mod.ini", modini);
 
+                Directory.CreateDirectory(dirname + "\\sound\\");
                 Directory.CreateDirectory(dirname + "\\disk\\");
-                Directory.CreateDirectory(dirname + "\\disk\\sonic2013_patch_0\\");
-                Process.Start(dirname + "\\disk\\sonic2013_patch_0\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\");
+                Process.Start(dirname + "\\");
 
                 Mainfrm.RefreshModList();
 

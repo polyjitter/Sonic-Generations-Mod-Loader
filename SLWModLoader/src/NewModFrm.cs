@@ -49,7 +49,7 @@ namespace SLWModLoader
 
                 if (radioButton1.Checked)
                 {
-                    OpenFileDialog ofd = new OpenFileDialog() { Title = "Choose a Mod's .Zip archive...", Filter = "Zip Archives Containing Mods (*.zip) | *.zip;" };
+                    OpenFileDialog ofd = new OpenFileDialog() { Title = "Choose a zip/7z/rar file that has a mod contained in it.", Filter = "*.zip/*.7z/*.rar | *.zip;" };
                     if (ofd.ShowDialog() == DialogResult.OK)
                     {
                         if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
@@ -61,7 +61,7 @@ namespace SLWModLoader
                 }
                 else if (radioButton2.Checked)
                 {
-                    FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "The folder which contains the mod-related files you'd like to load in-game, typically extracted from a .zip archive." };
+                    FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "The folder which contains the mod-related files you'd like to load in-game, typically extracted from a .zip/.7z/.rar archive." };
                     if (fbd.ShowDialog() == DialogResult.OK)
                     {
                         if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
@@ -103,7 +103,7 @@ namespace SLWModLoader
                             }
                         }
 
-                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a load-able mod! Would you like to try and install it anyway?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a load-able mod! Would you like to try and install it anyway?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                         {
                             if (Directory.GetDirectories(Application.StartupPath + "\\temp_install").Length > 0)
                             {
