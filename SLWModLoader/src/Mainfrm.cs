@@ -62,7 +62,7 @@ namespace SLWModLoader
                 if (!Directory.Exists(slwdirectory + "\\mods") && MessageBox.Show("A \"mods\" folder must exist within your Sonic Generations installation directory for the mod loader to correctly function. Would you like to create one?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { Directory.CreateDirectory(slwdirectory + "\\mods"); logfile.Add($"Mods directory made at {slwdirectory + "\\mods"}"); logfile.Add(""); }
                 else if (Directory.Exists(slwdirectory + "\\mods\\mods")) { MessageBox.Show("You seem to have a mods folder within your mods folder. This is not the proper structure the mod loader requires in order to work correctly, and as such, will likely cause issues.","Sonic Generations Mod Loader", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
-            else { MessageBox.Show("Sonic Generations Mod Loader could not find your Sonic Generations executable (slw.exe). The mod loader must be installed within your Sonic Generations installation directory in order to work correctly. Please ensure you've installed the program in the correct place, and try again.","Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); Application.Exit(); }
+            else { MessageBox.Show("Sonic Generations Mod Loader could not find your Sonic Generations executable (SonicGenerations.exe). The mod loader must be installed within your Sonic Generations installation directory in order to work correctly. Please ensure you've installed the program in the correct place, and try again.","Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); Application.Exit(); }
         }
 
         private bool IsFloat(string s)
@@ -104,25 +104,25 @@ namespace SLWModLoader
 
         private void PatchEXE()
         {
-            if (File.Exists(slwdirectory + "\\slw.exe"))
+            if (File.Exists(slwdirectory + "\\SonicGenerations.exe"))
             {
                 //Read the executable
-                byte[] slwexe;
-                try { slwexe = File.ReadAllBytes(slwdirectory + "\\slw.exe"); } catch (Exception ex) { logfile.Add("ERROR: "+ex.Message); return; }
+                byte[] sgensexe;
+                try { sgensexe = File.ReadAllBytes(slwdirectory + "\\SonicGenerations.exe"); } catch (Exception ex) { logfile.Add("ERROR: "+ex.Message); return; }
 
                 //Check to see if the executable is patched or not
-                for (long i = 11918776; i < slwexe.Length; i++)
+                for (long i = 20974226; i < sgensexe.Length; i++)
                 {
                     //Break if "cpkredir" is found, meaning the executable has already been patched
-                    if (slwexe[i] == 99 && slwexe[i + 2] == 112 && slwexe[i + 3] == 107 &&
-                        slwexe[i + 4] == 114 && slwexe[i + 5] == 101 && slwexe[i + 6] == 100 &&
-                        slwexe[i + 7] == 105 && slwexe[i + 8] == 114)
+                    if (sgensexe[i] == 99 && sgensexe[i + 2] == 112 && sgensexe[i + 3] == 107 &&
+                        sgensexe[i + 4] == 114 && sgensexe[i + 5] == 101 && sgensexe[i + 6] == 100 &&
+                        sgensexe[i + 7] == 105 && sgensexe[i + 8] == 114)
                     { break; }
 
                     //Ask if you should patch the executable if "imagehlp" is found, meaning the executable hasn't yet been patched
-                    if (slwexe[i] == 105 && slwexe[i+1] == 109 && slwexe[i+2] == 97 &&
-                        slwexe[i+3] == 103 && slwexe[i+4] == 101 && slwexe[i+5] == 104 &&
-                        slwexe[i+6] == 108 && slwexe[i+7] == 112)
+                    if (sgensexe[i] == 105 && sgensexe[i+1] == 109 && sgensexe[i+2] == 97 &&
+                        sgensexe[i+3] == 103 && sgensexe[i+4] == 101 && sgensexe[i+5] == 104 &&
+                        sgensexe[i+6] == 108 && sgensexe[i+7] == 112)
                     {
                         //We do this via an invoke to freeze the GUI thread until the messagebox is answered.
                         DialogResult dopatch = DialogResult.No;
@@ -136,9 +136,9 @@ namespace SLWModLoader
                             Invoke(new Action(() => statuslbl.Text = "Patching executable..."));
 
                             /*
-                              Here we're essentially hex editing the slw.exe executable to change
+                              Here we're essentially hex editing the SonicGenerations.exe executable to change
                               the string "imagehlp" to "cpkredir", typically found at decimal address
-                              11,918,776 or beyond, depending on which version of the game the user is
+                              20,974,226 or beyond, depending on which version of the game the user is
                               using.
                             */
 
@@ -146,17 +146,17 @@ namespace SLWModLoader
                             //c p k r e d i r                               -cpkredir spaced out
                             //99 112 107 114 101 100 105 114                -cpkredir in binary
 
-                            slwexe[i] = 99; slwexe[i + 1] = 112;      //99  = c, 112 = p
-                            slwexe[i + 2] = 107; slwexe[i + 3] = 114; //107 = k, 114 = r
-                            slwexe[i + 4] = 101; slwexe[i + 5] = 100; //101 = e, 100 = d
-                            slwexe[i + 6] = 105; slwexe[i + 7] = 114; //105 = i, 114 = r
+                            sgensexe[i] = 99; sgensexe[i + 1] = 112;      //99  = c, 112 = p
+                            sgensexe[i + 2] = 107; sgensexe[i + 3] = 114; //107 = k, 114 = r
+                            sgensexe[i + 4] = 101; sgensexe[i + 5] = 100; //101 = e, 100 = d
+                            sgensexe[i + 6] = 105; sgensexe[i + 7] = 114; //105 = i, 114 = r
 
                             //Now that we've edited the executable, all that's left is to make a backup of the old one...
-                            if (!File.Exists(slwdirectory + "\\slw.exe.backup")) { File.Move(slwdirectory + "\\slw.exe", slwdirectory + "\\slw.exe.backup"); }
-                            else { File.Delete(slwdirectory + "\\slw.exe"); }
+                            if (!File.Exists(slwdirectory + "\\SonicGenerations.exe.backup")) { File.Move(slwdirectory + "\\SonicGenerations.exe", slwdirectory + "\\SonicGenerations.exe.backup"); }
+                            else { File.Delete(slwdirectory + "\\SonicGenerations.exe"); }
 
                             //...and write the new one.
-                            File.WriteAllBytes(slwdirectory + "\\slw.exe", slwexe);
+                            File.WriteAllBytes(slwdirectory + "\\SonicGenerations.exe", sgensexe);
                             Invoke(new Action(() => statuslbl.Text = ""));
                         }
                         break;
@@ -353,8 +353,7 @@ namespace SLWModLoader
         {
             logfile.Add((closing)?"Closing mod loader and starting Sonic Generations...":"Starting Sonic Generations...");
             Invoke(new Action(() => { statuslbl.Text = "Starting SG..."; }));
-            Process slw = new Process();
-            new Process() { StartInfo = new ProcessStartInfo("steam://rungameid/71340") }.Start();
+            Process.Start("steam://rungameid/71340");
 
             Invoke((closing)?new Action(() => { Close(); }):new Action(() => { statuslbl.Text = ""; }));
         }
@@ -419,7 +418,7 @@ namespace SLWModLoader
 
         private void modsdirbtn_Click(object sender, EventArgs e)
         {
-            //FolderBrowserDialog fbd = new FolderBrowserDialog() { ShowNewFolderButton = true, Description = "The folder which contains the Sonic Generations executable (slw.exe), as well as a \"disk\" folder." };
+            //FolderBrowserDialog fbd = new FolderBrowserDialog() { ShowNewFolderButton = true, Description = "The folder which contains the Sonic Generations executable (SonicGenerations.exe), as well as a \"disk\" folder." };
             //if (fbd.ShowDialog() == DialogResult.OK)
             //{
             //    modsdir.Text = fbd.SelectedPath;
