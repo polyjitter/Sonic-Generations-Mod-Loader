@@ -81,7 +81,7 @@ namespace SLWModLoader
                         {
                             dirname = dirname.Replace(c.ToString(), "");
                         }
-                        Directory.Move(Application.StartupPath + "\\temp_install", Mainfrm.slwdirectory + "\\mods\\" + dirname);
+                        Directory.Move(Application.StartupPath + "\\temp_install", Mainfrm.gensdirectory + "\\mods\\" + dirname);
                         Mainfrm.RefreshModList();
                         return;
                     }
@@ -96,7 +96,7 @@ namespace SLWModLoader
                                 {
                                     dirname = dirname.Replace(c.ToString(), "");
                                 }
-                                Directory.Move(dir, Mainfrm.slwdirectory + "\\mods\\" + dirname);
+                                Directory.Move(dir, Mainfrm.gensdirectory + "\\mods\\" + dirname);
                                 if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
                                 Mainfrm.RefreshModList();
                                 return;
@@ -107,7 +107,7 @@ namespace SLWModLoader
                         {
                             if (Directory.GetDirectories(Application.StartupPath + "\\temp_install").Length > 0)
                             {
-                                Directory.Move(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0], Mainfrm.slwdirectory + "\\mods\\" + new DirectoryInfo(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0]).Name);
+                                Directory.Move(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0], Mainfrm.gensdirectory + "\\mods\\" + new DirectoryInfo(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0]).Name);
                                 if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
                                 Mainfrm.RefreshModList();
                                 return;

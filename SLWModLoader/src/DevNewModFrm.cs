@@ -120,13 +120,13 @@ namespace SLWModLoader
             
             if (doclose)
             {
-                Console.WriteLine(Mainfrm.slwdirectory + "\\mods\\" + name);
+                Console.WriteLine(Mainfrm.gensdirectory + "\\mods\\" + name);
                 string dirname = name;
                 foreach (char c in new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars()))
                 {
                     dirname = dirname.Replace(c.ToString(), "");
                 }
-                dirname = Mainfrm.slwdirectory + "\\mods\\" + dirname;
+                dirname = Mainfrm.gensdirectory + "\\mods\\" + dirname;
 
                 if (Directory.Exists(dirname) && MessageBox.Show($"A mod already exists in the \"{name}\" folder. Would you like to delete it and replace it with this one?","SLW Mod Loader",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
                 {

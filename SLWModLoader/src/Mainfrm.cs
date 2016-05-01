@@ -13,17 +13,17 @@ namespace SLWModLoader
 {
     public partial class Mainfrm : Form
     {
-        public static string versionstring = "1.0-rc", slwdirectory = Application.StartupPath;
+        public static string versionstring = "1.0-rc", gensdirectory = Application.StartupPath;
         public static bool debugmode = false;
         public static Thread generatemodsdbthread, loadmodthread, updatethread, patchthread;
         public static WebClient client = new WebClient();
-        public static string[] configfile; public static List<string> oldmods = new List<string>(), logfile = new List<string>();
+        public static string[] configfile; public static List<string> logfile = new List<string>();
 
         public Mainfrm()
         {
             #if DEBUG
                 debugmode = true;
-                slwdirectory = @"C:\Program Files (x86)\Steam\SteamApps\common\Sonic Generations"; //Comment-out this line if debugging on a PC where SLW is installed somewhere else!
+                gensdirectory = @"C:\Program Files (x86)\Steam\SteamApps\common\Sonic Generations"; //Comment-out this line if debugging on a PC where SLW is installed somewhere else!
             #endif
 
             logfile.Add("Initializing main form...");
@@ -57,10 +57,10 @@ namespace SLWModLoader
             logfile.Add("");
 
             //Make sure the program was installed in the correct place.
-            if (File.Exists(slwdirectory+"\\SonicGenerations.exe"))
+            if (File.Exists(gensdirectory+"\\SonicGenerations.exe"))
             {
-                if (!Directory.Exists(slwdirectory + "\\mods") && MessageBox.Show("A \"mods\" folder must exist within your Sonic Generations installation directory for the mod loader to correctly function. Would you like to create one?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { Directory.CreateDirectory(slwdirectory + "\\mods"); logfile.Add($"Mods directory made at {slwdirectory + "\\mods"}"); logfile.Add(""); }
-                else if (Directory.Exists(slwdirectory + "\\mods\\mods")) { MessageBox.Show("You seem to have a mods folder within your mods folder. This is not the proper structure the mod loader requires in order to work correctly, and as such, will likely cause issues.","Sonic Generations Mod Loader", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (!Directory.Exists(gensdirectory + "\\mods") && MessageBox.Show("A \"mods\" folder must exist within your Sonic Generations installation directory for the mod loader to correctly function. Would you like to create one?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { Directory.CreateDirectory(gensdirectory + "\\mods"); logfile.Add($"Mods directory made at {gensdirectory + "\\mods"}"); logfile.Add(""); }
+                else if (Directory.Exists(gensdirectory + "\\mods\\mods")) { MessageBox.Show("You seem to have a mods folder within your mods folder. This is not the proper structure the mod loader requires in order to work correctly, and as such, will likely cause issues.","Sonic Generations Mod Loader", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
             else { MessageBox.Show("Sonic Generations Mod Loader could not find your Sonic Generations executable (SonicGenerations.exe). The mod loader must be installed within your Sonic Generations installation directory in order to work correctly. Please ensure you've installed the program in the correct place, and try again.","Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); Application.Exit(); }
         }
@@ -80,7 +80,7 @@ namespace SLWModLoader
 
             //Load the list of mods
             statuslbl.Text = "Loading mods...";
-            logfile.Add($"Started loading mods from \"{slwdirectory + "\\mods"}\"..."); logfile.Add("");
+            logfile.Add($"Started loading mods from \"{gensdirectory + "\\mods"}\"..."); logfile.Add("");
             loadmodthread.Start();
 
             //Remove leftover temporary files if they exist
@@ -104,11 +104,11 @@ namespace SLWModLoader
 
         private void PatchEXE()
         {
-            if (File.Exists(slwdirectory + "\\SonicGenerations.exe"))
+            if (File.Exists(gensdirectory + "\\SonicGenerations.exe"))
             {
                 //Read the executable
                 byte[] sgensexe;
-                try { sgensexe = File.ReadAllBytes(slwdirectory + "\\SonicGenerations.exe"); } catch (Exception ex) { logfile.Add("ERROR: "+ex.Message); return; }
+                try { sgensexe = File.ReadAllBytes(gensdirectory + "\\SonicGenerations.exe"); } catch (Exception ex) { logfile.Add("ERROR: "+ex.Message); return; }
 
                 //Check to see if the executable is patched or not
                 for (long i = 20974226; i < sgensexe.Length; i++)
@@ -152,11 +152,11 @@ namespace SLWModLoader
                             sgensexe[i + 6] = 105; sgensexe[i + 7] = 114; //105 = i, 114 = r
 
                             //Now that we've edited the executable, all that's left is to make a backup of the old one...
-                            if (!File.Exists(slwdirectory + "\\SonicGenerations.exe.backup")) { File.Move(slwdirectory + "\\SonicGenerations.exe", slwdirectory + "\\SonicGenerations.exe.backup"); }
-                            else { File.Delete(slwdirectory + "\\SonicGenerations.exe"); }
+                            if (!File.Exists(gensdirectory + "\\SonicGenerations.exe.backup")) { File.Move(gensdirectory + "\\SonicGenerations.exe", gensdirectory + "\\SonicGenerations.exe.backup"); }
+                            else { File.Delete(gensdirectory + "\\SonicGenerations.exe"); }
 
                             //...and write the new one.
-                            File.WriteAllBytes(slwdirectory + "\\SonicGenerations.exe", sgensexe);
+                            File.WriteAllBytes(gensdirectory + "\\SonicGenerations.exe", sgensexe);
                             Invoke(new Action(() => statuslbl.Text = ""));
                         }
                         break;
@@ -176,13 +176,13 @@ namespace SLWModLoader
 
         private void LoadMods()
         {
-            Invoke(new Action(() => { modslist.Items.Clear(); oldmods.Clear(); }));
+            Invoke(new Action(() => { modslist.Items.Clear(); }));
             List<ListViewItem> modlistitems = new List<ListViewItem>();
 
             //Load mod data
-            if (Directory.Exists(slwdirectory + "\\mods"))
+            if (Directory.Exists(gensdirectory + "\\mods"))
             {
-                foreach (string mod in Directory.GetDirectories(slwdirectory + "\\mods"))
+                foreach (string mod in Directory.GetDirectories(gensdirectory + "\\mods"))
                 {
                     if (File.Exists(mod + "\\mod.ini"))
                     {
@@ -194,14 +194,13 @@ namespace SLWModLoader
                         modlvi.SubItems.Add((GetModINIinfo(modini, "SaveFile") != null) ? "Yes" : "No");
                         modlistitems.Add(modlvi);
                     }
-                    else { oldmods.Add(mod); }
                 }
             }
 
             //Add it to the list
             Invoke(new Action(() => { modslist.Items.AddRange(modlistitems.ToArray()); }));
 
-            string[] modsdb = new string[] { "[Mods]" }; if (File.Exists(slwdirectory + "\\mods\\ModsDB.ini")) { modsdb = File.ReadAllLines(slwdirectory + "\\mods\\ModsDB.ini"); }
+            string[] modsdb = new string[] { "[Mods]" }; if (File.Exists(gensdirectory + "\\mods\\ModsDB.ini")) { modsdb = File.ReadAllLines(gensdirectory + "\\mods\\ModsDB.ini"); }
             foreach (string activemod in modsdb)
             {
                 if (activemod == "[Mods]") break;
@@ -220,48 +219,9 @@ namespace SLWModLoader
                 }
             }
 
-            bool moveoldmods = false;
             Invoke(new Action(() => { nomodsfound.Visible = refreshlbl.Visible = (modslist.Items.Count < 1); modslist.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize); }));
-            Invoke(new Action(() => { moveoldmods = (oldmods.Count > 0 && MessageBox.Show("Your mods folder seems to contain mods designed for the pre-3.0 version of the mod loader. Would you like to attempt to update them?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes); if (moveoldmods) { statuslbl.Text = "Updating old mods..."; } }));
 
-            if (moveoldmods)
-            {
-                logfile.Add("Updating old mods...");
-                foreach (string oldmod in oldmods)
-                {
-                    //Make a temporary directory
-                    if (Directory.Exists(Application.StartupPath + "\\temp")) { Directory.Delete(Application.StartupPath + "\\temp", true); }
-                    Directory.CreateDirectory(Application.StartupPath + "\\temp");
-
-                    //Move the old mod into the temporary directory
-                    Directory.Move(oldmod, Application.StartupPath + "\\temp\\" + new DirectoryInfo(oldmod).Name);
-
-                    //Re-format the old mod's directory
-                    Directory.CreateDirectory(oldmod + "\\disk");
-                    //Directory.CreateDirectory(oldmod + "\\disk\\sonic2013_patch_0");
-                    File.WriteAllLines(oldmod + "\\mod.ini", new string[]
-                    {
-                        "[Main]",
-                        "IncludeDir0=\".\"",
-                        "IncludeDirCount=1",
-                        "",
-                        "[Desc]",
-                        $"Title=\"{new DirectoryInfo(oldmod).Name}\"",
-                        "Description=\"This mod was automatically updated from it's previous form, and as such, does not have a description.\"",
-                        "Version=\"1.0\"",
-                    });
-
-                    //Move the old mod back into it's original directory
-                    Directory.Move(Application.StartupPath + "\\temp\\" + new DirectoryInfo(oldmod).Name, oldmod + "\\disk\\sonic2013_patch_0");
-                }
-
-                logfile.Add("Finished updating old mods.");
-
-                Invoke(new Action(() => statuslbl.Text = ""));
-                loadmodthread = new Thread(new ThreadStart(LoadMods));
-                loadmodthread.Start();
-            }
-            else { logfile.Add("Finised loading mods."); logfile.Add(""); }
+            logfile.Add("Finised loading mods."); logfile.Add("");
         }
 
         private void CheckForUpdates()
@@ -296,7 +256,7 @@ namespace SLWModLoader
             logfile.Add("Deleting old ModsDB.ini file...");
             
             //Delete old ModsDB.ini file if it exists
-            if (File.Exists(slwdirectory + "\\mods\\ModsDB.ini")) { File.Delete(slwdirectory + "\\mods\\ModsDB.ini"); }
+            if (File.Exists(gensdirectory + "\\mods\\ModsDB.ini")) { File.Delete(gensdirectory + "\\mods\\ModsDB.ini"); }
 
             logfile.Add("Forming a list of checked mods...");
 
@@ -329,7 +289,7 @@ namespace SLWModLoader
             logfile.Add("Saving newly-generated ModsDB.ini...");
 
             //Save the generated file
-            File.WriteAllLines(slwdirectory + "\\mods\\ModsDB.ini", modsdb);
+            File.WriteAllLines(gensdirectory + "\\mods\\ModsDB.ini", modsdb);
 
             logfile.Add("ModsDB successfully saved.");
 
@@ -531,7 +491,7 @@ namespace SLWModLoader
                         {
                             dirname = dirname.Replace(c.ToString(), "");
                         }
-                        Directory.Move(Application.StartupPath + "\\temp_install", Mainfrm.slwdirectory + "\\mods\\" + dirname);
+                        Directory.Move(Application.StartupPath + "\\temp_install", Mainfrm.gensdirectory + "\\mods\\" + dirname);
                         RefreshModList();
                         return;
                     }
@@ -546,7 +506,7 @@ namespace SLWModLoader
                                 {
                                     dirname = dirname.Replace(c.ToString(), "");
                                 }
-                                Directory.Move(dir, slwdirectory + "\\mods\\" + dirname);
+                                Directory.Move(dir, gensdirectory + "\\mods\\" + dirname);
                                 if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
                                 RefreshModList();
                                 return;
@@ -557,7 +517,7 @@ namespace SLWModLoader
                         {
                             if (Directory.GetDirectories(Application.StartupPath + "\\temp_install").Length > 0)
                             {
-                                Directory.Move(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0], Mainfrm.slwdirectory + "\\mods\\" + new DirectoryInfo(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0]).Name);
+                                Directory.Move(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0], Mainfrm.gensdirectory + "\\mods\\" + new DirectoryInfo(Directory.GetDirectories(Application.StartupPath + "\\temp_install")[0]).Name);
                                 if (Directory.Exists(Application.StartupPath + "\\temp_install")) { Directory.Delete(Application.StartupPath + "\\temp_install", true); }
                                 RefreshModList();
                                 return;
