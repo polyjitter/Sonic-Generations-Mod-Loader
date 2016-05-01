@@ -13,7 +13,7 @@ namespace SLWModLoader
 {
     public partial class Mainfrm : Form
     {
-        public static string versionstring = "5.2", slwdirectory = Application.StartupPath;
+        public static string versionstring = "1.0-rc", slwdirectory = Application.StartupPath;
         public static bool debugmode = false;
         public static Thread generatemodsdbthread, loadmodthread, updatethread, patchthread;
         public static WebClient client = new WebClient();
@@ -33,7 +33,7 @@ namespace SLWModLoader
             InitializeComponent();
 
             //Set the form's title
-            Text = $"SLW Mod Loader (v {versionstring}){((debugmode)?" - Debug Mode":"")}";
+            Text = $"Sonic Generations Mod Loader (v{versionstring}){((debugmode)?" - Debug Mode":"")}";
 
             //Load the config file
             if (File.Exists(Application.StartupPath + "\\config.txt"))
@@ -59,10 +59,10 @@ namespace SLWModLoader
             //Make sure the program was installed in the correct place.
             if (File.Exists(slwdirectory+"\\SonicGenerations.exe"))
             {
-                if (!Directory.Exists(slwdirectory + "\\mods") && MessageBox.Show("A \"mods\" folder must exist within your Sonic Lost World installation directory for the mod loader to correctly function. Would you like to create one?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { Directory.CreateDirectory(slwdirectory + "\\mods"); logfile.Add($"Mods directory made at {slwdirectory + "\\mods"}"); logfile.Add(""); }
-                else if (Directory.Exists(slwdirectory + "\\mods\\mods")) { MessageBox.Show("You seem to have a mods folder within your mods folder. This is not the proper structure the mod loader requires in order to work correctly, and as such, will likely cause issues.","SLW Mod Loader", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (!Directory.Exists(slwdirectory + "\\mods") && MessageBox.Show("A \"mods\" folder must exist within your Sonic Generations installation directory for the mod loader to correctly function. Would you like to create one?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { Directory.CreateDirectory(slwdirectory + "\\mods"); logfile.Add($"Mods directory made at {slwdirectory + "\\mods"}"); logfile.Add(""); }
+                else if (Directory.Exists(slwdirectory + "\\mods\\mods")) { MessageBox.Show("You seem to have a mods folder within your mods folder. This is not the proper structure the mod loader requires in order to work correctly, and as such, will likely cause issues.","Sonic Generations Mod Loader", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
-            else { MessageBox.Show("SLW Mod Loader could not find your Sonic Lost World executable (slw.exe). The mod loader must be installed within your Sonic Lost World installation directory in order to work correctly. Please ensure you've installed the program in the correct place, and try again.","SLW Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); Application.Exit(); }
+            else { MessageBox.Show("Sonic Generations Mod Loader could not find your Sonic Generations executable (slw.exe). The mod loader must be installed within your Sonic Generations installation directory in order to work correctly. Please ensure you've installed the program in the correct place, and try again.","Sonic Generations Mod Loader",MessageBoxButtons.OK,MessageBoxIcon.Error); Application.Exit(); }
         }
 
         private bool IsFloat(string s)
@@ -128,7 +128,7 @@ namespace SLWModLoader
                         DialogResult dopatch = DialogResult.No;
                         Invoke(new Action(() =>
                         {
-                            dopatch = MessageBox.Show("Your Sonic Lost World executable has not yet been patched for use with CPKREDIR, which is required to load mods. Would you like to patch it now?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            dopatch = MessageBox.Show("Your Sonic Generations executable has not yet been patched for use with CPKREDIR, which is required to load mods. Would you like to patch it now?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         }));
 
                         if (dopatch == DialogResult.Yes)
@@ -152,7 +152,7 @@ namespace SLWModLoader
                             slwexe[i + 6] = 105; slwexe[i + 7] = 114; //105 = i, 114 = r
 
                             //Now that we've edited the executable, all that's left is to make a backup of the old one...
-                            if (!File.Exists(slwdirectory + "\\slw_Backup.exe")) { File.Move(slwdirectory + "\\slw.exe", slwdirectory + "\\slw_Backup.exe"); }
+                            if (!File.Exists(slwdirectory + "\\slw.exe.backup")) { File.Move(slwdirectory + "\\slw.exe", slwdirectory + "\\slw.exe.backup"); }
                             else { File.Delete(slwdirectory + "\\slw.exe"); }
 
                             //...and write the new one.
@@ -222,7 +222,7 @@ namespace SLWModLoader
 
             bool moveoldmods = false;
             Invoke(new Action(() => { nomodsfound.Visible = refreshlbl.Visible = (modslist.Items.Count < 1); modslist.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize); }));
-            Invoke(new Action(() => { moveoldmods = (oldmods.Count > 0 && MessageBox.Show("Your mods folder seems to contain mods designed for the pre-3.0 version of the mod loader. Would you like to attempt to update them?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes); if (moveoldmods) { statuslbl.Text = "Updating old mods..."; } }));
+            Invoke(new Action(() => { moveoldmods = (oldmods.Count > 0 && MessageBox.Show("Your mods folder seems to contain mods designed for the pre-3.0 version of the mod loader. Would you like to attempt to update them?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes); if (moveoldmods) { statuslbl.Text = "Updating old mods..."; } }));
 
             if (moveoldmods)
             {
@@ -270,11 +270,11 @@ namespace SLWModLoader
             {
                 client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
 
-                Updatefrm.latest = new StreamReader(client.OpenRead("https://api.github.com/repos/GoldtexTwitch/SLW-Mod-Loader/releases/latest")).ReadToEnd();
+                Updatefrm.latest = new StreamReader(client.OpenRead("https://api.github.com/repos/GoldtexTwitch/SLW-Mod-Loader-Gens/releases/latest")).ReadToEnd();
                 Updatefrm.latestversion = Updatefrm.latest.Substring(Updatefrm.latest.IndexOf("tag_name") + 11, 3);
                 logfile.Add("Got latest release information from GitHub.");
 
-                if (Convert.ToSingle(Updatefrm.latestversion) > Convert.ToSingle(versionstring) && MessageBox.Show($"A new version of the application (version v{Updatefrm.latestversion}) has been released. Would you like to download it?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (Convert.ToSingle(Updatefrm.latestversion) > Convert.ToSingle(versionstring) && MessageBox.Show($"A new version of the application (version v{Updatefrm.latestversion}) has been released. Would you like to download it?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     Invoke(new Action(() => { Close(); }));
                     new Updatefrm().ShowDialog();
@@ -336,7 +336,7 @@ namespace SLWModLoader
             //If "obj" is a boolean and is equal to "true"...
             if (obj.GetType() == typeof(bool) && (bool)obj)
             {
-                //Close the mod loader and start Sonic Lost World
+                //Close the mod loader and start Sonic Generations
                 StartLostWorld(true);
             }
             else
@@ -346,13 +346,13 @@ namespace SLWModLoader
         }
 
         /// <summary>
-        /// Does what it sounds like.. starts Lost World ;)
+        /// Does what it sounds like.. starts Generations ;)
         /// </summary>
         /// <param name="closing">Whether or not to close the mod loader after starting the game.</param>
         private void StartLostWorld(bool closing)
         {
-            logfile.Add((closing)?"Closing mod loader and starting Sonic Lost World...":"Starting Sonic Lost World...");
-            Invoke(new Action(() => { statuslbl.Text = "Starting SLW..."; }));
+            logfile.Add((closing)?"Closing mod loader and starting Sonic Generations...":"Starting Sonic Generations...");
+            Invoke(new Action(() => { statuslbl.Text = "Starting SG..."; }));
             Process slw = new Process();
             new Process() { StartInfo = new ProcessStartInfo("steam://rungameid/71340") }.Start();
 
@@ -419,7 +419,7 @@ namespace SLWModLoader
 
         private void modsdirbtn_Click(object sender, EventArgs e)
         {
-            //FolderBrowserDialog fbd = new FolderBrowserDialog() { ShowNewFolderButton = true, Description = "The folder which contains the Sonic Lost World executable (slw.exe), as well as a \"disk\" folder." };
+            //FolderBrowserDialog fbd = new FolderBrowserDialog() { ShowNewFolderButton = true, Description = "The folder which contains the Sonic Generations executable (slw.exe), as well as a \"disk\" folder." };
             //if (fbd.ShowDialog() == DialogResult.OK)
             //{
             //    modsdir.Text = fbd.SelectedPath;
@@ -488,7 +488,7 @@ namespace SLWModLoader
 
         private void rmmodbtn_Click(object sender, EventArgs e)
         {
-            if (modslist.SelectedItems.Count > 0 && MessageBox.Show($"Are you sure you want to delete \"{modslist.SelectedItems[0].Text}\"","SLW Mod Loader",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (modslist.SelectedItems.Count > 0 && MessageBox.Show($"Are you sure you want to delete \"{modslist.SelectedItems[0].Text}\"","Sonic Generations Mod Loader",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 logfile.Add($"Deleting \"{modslist.SelectedItems[0].Text}\"");
                 Directory.Delete(((List<string>)modslist.SelectedItems[0].Tag)[0],true);
@@ -554,7 +554,7 @@ namespace SLWModLoader
                             }
                         }
 
-                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a load-able mod! Would you like to try and install it anyway?", "SLW Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                        if (MessageBox.Show("Whoops! Sorry, but this doesn't appear to be a load-able mod! Would you like to try and install it anyway?", "Sonic Generations Mod Loader", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                         {
                             if (Directory.GetDirectories(Application.StartupPath + "\\temp_install").Length > 0)
                             {

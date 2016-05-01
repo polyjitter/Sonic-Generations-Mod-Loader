@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>A program designed to help people easily load their Sonic Lost World mods.
+    <value>A program designed to help people easily load their Sonic Generations mods.
 Requires a LEGALLY-PURCHASED version of the game.
 
 CREDITS:
-Radfordhound - Core Mod Loader functionallity.
+Radfordhound - Core mod loader functionallity and creating SLW Mod Loader
 Korama - CPKREDIR
-</value>
+Slash - Converting for use with Generations</value>
   </data>
 </root>

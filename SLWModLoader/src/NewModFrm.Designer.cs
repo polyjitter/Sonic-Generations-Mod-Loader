@@ -40,9 +40,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton1.Location = new System.Drawing.Point(22, 85);
+            this.radioButton1.Location = new System.Drawing.Point(15, 55);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(181, 25);
+            this.radioButton1.Size = new System.Drawing.Size(128, 18);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "&Installing it from a file";
@@ -54,9 +55,10 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Segoe UI", 21F);
             this.label.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label.Location = new System.Drawing.Point(12, 9);
+            this.label.Location = new System.Drawing.Point(8, 6);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(405, 57);
+            this.label.Size = new System.Drawing.Size(268, 38);
             this.label.TabIndex = 1;
             this.label.Text = "Add a new mod by...";
             // 
@@ -64,9 +66,10 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton2.Location = new System.Drawing.Point(22, 115);
+            this.radioButton2.Location = new System.Drawing.Point(15, 75);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(201, 25);
+            this.radioButton2.Size = new System.Drawing.Size(141, 18);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.Text = "Installing it from a &folder";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -76,9 +79,10 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton3.Location = new System.Drawing.Point(22, 145);
+            this.radioButton3.Location = new System.Drawing.Point(15, 94);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(210, 25);
+            this.radioButton3.Size = new System.Drawing.Size(150, 18);
             this.radioButton3.TabIndex = 3;
             this.radioButton3.Text = "&Making it (for developers)";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@
             // okBtn
             // 
             this.okBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okBtn.Location = new System.Drawing.Point(442, 163);
+            this.okBtn.Location = new System.Drawing.Point(295, 106);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(96, 34);
+            this.okBtn.Size = new System.Drawing.Size(64, 22);
             this.okBtn.TabIndex = 4;
             this.okBtn.Text = "&OK";
             this.okBtn.UseVisualStyleBackColor = true;
@@ -98,23 +103,24 @@
             // NewModFrm
             // 
             this.AcceptButton = this.okBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 209);
+            this.ClientSize = new System.Drawing.Size(367, 136);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.label);
             this.Controls.Add(this.radioButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewModFrm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SLW Mod Loader";
+            this.Text = "Sonic Generations Mod Loader";
             this.ResumeLayout(false);
             this.PerformLayout();
 

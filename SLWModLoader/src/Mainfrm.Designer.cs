@@ -85,7 +85,7 @@
             this.modslist.Location = new System.Drawing.Point(0, 0);
             this.modslist.MultiSelect = false;
             this.modslist.Name = "modslist";
-            this.modslist.Size = new System.Drawing.Size(501, 405);
+            this.modslist.Size = new System.Drawing.Size(501, 412);
             this.modslist.TabIndex = 0;
             this.modslist.UseCompatibleStateImageBehavior = false;
             this.modslist.View = System.Windows.Forms.View.Details;
@@ -138,10 +138,10 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.splitContainer);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(540, 411);
+            this.tabPage1.Size = new System.Drawing.Size(540, 418);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mods";
             // 
@@ -164,7 +164,7 @@
             this.splitContainer.Panel2.Controls.Add(this.MoveUpAll);
             this.splitContainer.Panel2.Controls.Add(this.MoveDownbtn);
             this.splitContainer.Panel2.Controls.Add(this.MoveUpbtn);
-            this.splitContainer.Size = new System.Drawing.Size(534, 405);
+            this.splitContainer.Size = new System.Drawing.Size(534, 412);
             this.splitContainer.SplitterDistance = 501;
             this.splitContainer.TabIndex = 5;
             // 
@@ -190,7 +190,7 @@
             this.nomodsfound.ForeColor = System.Drawing.Color.Red;
             this.nomodsfound.Location = new System.Drawing.Point(0, 0);
             this.nomodsfound.Name = "nomodsfound";
-            this.nomodsfound.Size = new System.Drawing.Size(501, 405);
+            this.nomodsfound.Size = new System.Drawing.Size(501, 412);
             this.nomodsfound.TabIndex = 4;
             this.nomodsfound.Text = "No mods found!\r\nPlease check your mod folder.";
             this.nomodsfound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,10 +245,10 @@
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.makelogfile);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(540, 411);
+            this.tabPage2.Size = new System.Drawing.Size(540, 418);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Options";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@
             this.panel1.Controls.Add(this.aboutBtn);
             this.panel1.Controls.Add(this.reportlbl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 308);
+            this.panel1.Location = new System.Drawing.Point(3, 315);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(534, 100);
             this.panel1.TabIndex = 12;
@@ -270,7 +270,7 @@
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(276, 36);
             this.aboutBtn.TabIndex = 8;
-            this.aboutBtn.Text = "&About SLW Mod Loader";
+            this.aboutBtn.Text = "&About Sonic Generations Mod Loader";
             this.aboutBtn.UseVisualStyleBackColor = true;
             this.aboutBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -297,7 +297,7 @@
             this.makelogfile.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.makelogfile.Location = new System.Drawing.Point(15, 15);
             this.makelogfile.Name = "makelogfile";
-            this.makelogfile.Size = new System.Drawing.Size(230, 25);
+            this.makelogfile.Size = new System.Drawing.Size(166, 18);
             this.makelogfile.TabIndex = 10;
             this.makelogfile.Text = "Make a log file when closing";
             this.makelogfile.UseVisualStyleBackColor = true;
@@ -309,7 +309,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19F);
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(534, 405);
+            this.label1.Size = new System.Drawing.Size(534, 412);
             this.label1.TabIndex = 9;
             this.label1.Text = "More options coming soon! :)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -439,7 +439,7 @@
             this.MinimizeBox = false;
             this.Name = "Mainfrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SLW Mod Loader";
+            this.Text = "Sonic Generations Mod Loader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainfrm_Closing);
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.panel.ResumeLayout(false);
