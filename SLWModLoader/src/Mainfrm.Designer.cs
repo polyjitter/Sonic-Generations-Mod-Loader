@@ -46,6 +46,7 @@
             this.MoveUpbtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.aboutBtn = new System.Windows.Forms.Button();
             this.reportlbl = new System.Windows.Forms.LinkLabel();
             this.makelogfile = new System.Windows.Forms.CheckBox();
@@ -59,7 +60,6 @@
             this.rmmodbtn = new System.Windows.Forms.Button();
             this.playbtn = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -265,10 +265,21 @@
             this.panel1.Size = new System.Drawing.Size(534, 100);
             this.panel1.TabIndex = 12;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Location = new System.Drawing.Point(129, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 27);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "&GitHub Page";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // aboutBtn
             // 
             this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.aboutBtn.Location = new System.Drawing.Point(129, 20);
+            this.aboutBtn.Location = new System.Drawing.Point(129, 18);
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(276, 27);
             this.aboutBtn.TabIndex = 8;
@@ -419,17 +430,6 @@
             this.savebtn.Text = "Save";
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(129, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 27);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "&GitHub Page";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Mainfrm
             // 
