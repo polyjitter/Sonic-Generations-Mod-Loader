@@ -59,6 +59,7 @@
             this.rmmodbtn = new System.Windows.Forms.Button();
             this.playbtn = new System.Windows.Forms.Button();
             this.savebtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -255,6 +256,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.aboutBtn);
             this.panel1.Controls.Add(this.reportlbl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -266,9 +268,9 @@
             // aboutBtn
             // 
             this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.aboutBtn.Location = new System.Drawing.Point(129, 36);
+            this.aboutBtn.Location = new System.Drawing.Point(129, 20);
             this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(276, 36);
+            this.aboutBtn.Size = new System.Drawing.Size(276, 27);
             this.aboutBtn.TabIndex = 8;
             this.aboutBtn.Text = "&About Sonic Generations Mod Loader";
             this.aboutBtn.UseVisualStyleBackColor = true;
@@ -418,6 +420,17 @@
             this.savebtn.UseVisualStyleBackColor = true;
             this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Location = new System.Drawing.Point(129, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 27);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "&GitHub Page";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Mainfrm
             // 
             this.AcceptButton = this.saveandplaybtn;
@@ -491,6 +504,7 @@
         private System.Windows.Forms.Button rmmodbtn;
         private System.Windows.Forms.Button playbtn;
         private System.Windows.Forms.Button savebtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -13,7 +13,7 @@ namespace SLWModLoader
 {
     public partial class Mainfrm : Form
     {
-        public static string versionstring = "1.1", gensdirectory = Application.StartupPath;
+        public static string versionstring = "1.1-dev", gensdirectory = Application.StartupPath;
         public static bool debugmode = false;
         public static Thread generatemodsdbthread, loadmodthread, updatethread, patchthread;
         public static WebClient client = new WebClient();
@@ -548,6 +548,11 @@ namespace SLWModLoader
         private void descriptionlbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (modslist.SelectedItems.Count > 0) { new descriptionFrm(GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "Description"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "Title"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "Author"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "Date"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "URL"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "Version"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "AuthorURL"), (!string.IsNullOrEmpty(GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "BackgroundImage"))?((List<string>)modslist.SelectedItems[0].Tag)[0]+"\\"+GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "BackgroundImage"):""), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "TextColor"), GetModINIinfo((List<string>)modslist.SelectedItems[0].Tag, "HeaderColor")).ShowDialog(); }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            new Process() { StartInfo = new ProcessStartInfo("https://github.com/GoldtexTwitch/Sonic-Generations-Mod-Loader/") }.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
