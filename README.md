@@ -46,34 +46,42 @@ Wereas the "MLG Speedrun Zone 1" mod (which modifies certain files not on the ro
 ###The mod.ini file
 The mod.ini file is a mod configuration file that details all the user-friendly information about your mod, as well as how CPKREDIR should load the mod.
 
-The version of the format used in the SLW Mod Loader is a variation on the format used in SonicGMI, with some minor changes/additions here and there.
+The version of the format used in Sonic Generations Mod Loader is a variation on the format used in SonicGMI, with some minor changes/additions here and there.
 
 Here's an example of a mod.ini file:
 ```
 [Main]
 IncludeDir0="."
 IncludeDirCount=1
-UpdateServer="https://dl.dropboxusercontent.com/s/4389t7gn44x8u9h/MLGSpeedRunUpdateFile.txt"
+SaveFile="Saves\sonic.sav"
+UpdateServer="http://unleashed.l0nk.org/update_server_unleashed_project/"
 
 [Desc]
-Title="MLG Speedrun Zone 1"
-Description="BEAT WINDY HILL 1 LIKE A PRO NOSCOPER!!1!!1!"
+Title="Unleashed Project"
+Description="Total Conversion Mod that ports most of Sonic Unleashed's day levels from the Xbox 360 version into Generations PC. Starting a New Game with Save File Redirection enabled is recommended."
 Version="1.0"
-Date="11/06/15"
-Author="Radfordhound"
-AuthorURL="https://www.youtube.com/user/Radfordhound"
-URL="https://www.dropbox.com/sh/2zgsu1rwjt7ld42/AAA99UvcLlRWxpbLWCeiECt3a"
+Date="03/18/2013"
+Author="Team Unleashed"
+AuthorURL="https://www.youtube.com/channel/UCkTKDJx4zCUcYVjjWh3gC7g"
+URL="http://www.moddb.com/mods/sonic-generations-unleashed-project"
+
+[CPKs]
+disk\bb.cpk="bb.ini"
+disk\bb2.cpk="bb2.ini"
+disk\bb3.cpk="bb3.ini"
 ```
 
 The following is a list of the most important values that can be used in a mod.INI file:
 
 ###Main
 
-**IncludeDir 0-??** Specifies which folders will be included with your mod, allowing you to modify the default file/folder structure mentioned above.
+**IncludeDir0-??** Specifies which folders will be included with your mod, allowing you to modify the default file/folder structure mentioned above.
 
 **IncludeDirCount** Specifies how many folders will be included with your mod.
 
 **UpdateServer** A modification of the existing SonicGMI value that specifies the link to a raw .txt file containing URLs in a particular format. This feature has **not yet been added**, and will be further detailed once it is. However, I recommend linking a .txt file just in case anyway, as it will allow you to release auto-downloading updates to your mods once the mod loader has been updated to support this feature.
+
+**SaveFile** Tells the mod loader that there's a save file that came with the mod itself and that it should load that save instead.
 
 ###Desc
 
@@ -89,8 +97,6 @@ Typing a "\n" in this value will indicate a new line within the mod loader, **wh
 **AuthorURL** The URL(s) to the author(s) of the mod. (Such as websites, YouTube channels, and social media accounts.) **You can include multiple authors in this value!** Simply seperate the authors' URLs via a space, followed by an ampersand, and another space. (Like this: "https://www.youtube.com/user/Radfordhound & https://www.youtube.com/channel/UCZfOGBkXRKICFozWU5bE0Xg") They will be loaded as seperate URLs within the mod loader and automatically linked with the data contained in the "Author" value, allowing you to link to them seperately.
 
 **URL** The URL of the mod (aka mod homepages/threads/release videos).
-
-**BackgroundImage** The image in the background of the mod when you click for more information. (verry buggy at the moment!).
 
 
 There are many other values that can be used in a mod.ini file, many of which are already being used in several mods. So keep an eye out for em' in other released mods! :)
