@@ -137,10 +137,167 @@ namespace SLWModLoader
                 File.WriteAllLines(dirname+"\\mod.ini", modini);
 
                 Directory.CreateDirectory(dirname + "\\sound\\");
+
+                Directory.CreateDirectory(dirname + "\\sound\\sng00_sys\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng01_ghz\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng02_cpz\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng03_ssz\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng04_sph\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng05_cte\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng06_ssh\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng07_csc\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng08_euc\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng09_pla\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng10_cnz\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng11_bms\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng12_bsd\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng13_bsl\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng14_bde\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng15_bpc\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng16_bne\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng17_blb\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng18_pam\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng19_jng\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng20_msn\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng21_etc\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng22_add\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng23_pam\\");
+				
+                Directory.CreateDirectory(dirname + "\\sound\\sng00_sys\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng01_ghz\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng02_cpz\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng03_ssz\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng04_sph\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng05_cte\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng06_ssh\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng07_csc\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng08_euc\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng09_pla\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng10_cnz\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng11_bms\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng12_bsd\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng13_bsl\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng14_bde\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng15_bpc\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng16_bne\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng17_blb\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng18_pam\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng19_jng\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng20_msn\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng21_etc\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng22_add\\synth\\");
+                Directory.CreateDirectory(dirname + "\\sound\\sng23_pam\\synth\\");
+
                 Directory.CreateDirectory(dirname + "\\disk\\");
+
                 Directory.CreateDirectory(dirname + "\\disk\\bb\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\");
+
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\english\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\french\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\german\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\italian\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\japanese\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\languages\\spanish\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\");
+
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\bde\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\blb\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\bne\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\bpc\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\cpz100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\cpz200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\cte100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\cte102\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\cte200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ghz100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ghz103\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ghz104\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ghz200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\sph100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\sph101\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\sph200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ssz100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ssz103\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb\\packed\\ssz200\\");
+				
                 Directory.CreateDirectory(dirname + "\\disk\\bb2\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\collection\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\hint\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\install\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\item\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\loading\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\loadinghint\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\reddog\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\english\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\french\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\german\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\italian\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\japanese\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\languages\\spanish\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\english\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\french\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\german\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\italian\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\japanese\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\voices\\spanish\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\bms\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\bsd\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\bsl\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\cnz100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\csc100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\csc200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\euc100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\euc200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\euc204\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\evt041\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\evt121\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\fig000\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pam000\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pam001\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pla100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pla200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pla204\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\pla205\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh100\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh101\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh103\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh200\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh201\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb2\\packed\\ssh205\\");
+
                 Directory.CreateDirectory(dirname + "\\disk\\bb3\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\english\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\french\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\german\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\italian\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\japanese\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\languages\\spanish\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\");
+				
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\english\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\french\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\german\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\italian\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\japanese\\");
+                Directory.CreateDirectory(dirname + "\\disk\\bb3\\voices\\spanish\\");
+				
                 Process.Start(dirname + "\\");
 
                 Mainfrm.RefreshModList();
