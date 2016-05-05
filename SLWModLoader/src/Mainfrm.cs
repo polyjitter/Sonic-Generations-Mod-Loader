@@ -424,12 +424,12 @@ namespace SLWModLoader
                     if (description.Substring(description.Length - 3, 3) != "...") { description += "..."; descriptionlbl.LinkBehavior = LinkBehavior.HoverUnderline; }
                 }
 
-                descriptionlbl.Text = (!string.IsNullOrEmpty(description))?description:"This mod doesn't contain a description. Click here to learn more about it.";
+                descriptionlbl.Text = (!string.IsNullOrEmpty(description))?description:"This mod does not contain a description.";
             }
             else if (modslist.SelectedItems.Count <= 0)
             {
                 rmmodbtn.Enabled = false;
-                descriptionlbl.Text = "Click on a mod to see it's description. Then try clicking on me! :)";
+                descriptionlbl.Text = "Click on a mod to see it's description. Then click on me to see more!";
                 descriptionlbl.LinkBehavior = LinkBehavior.NeverUnderline;
             }
         }
